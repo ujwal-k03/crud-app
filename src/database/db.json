@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "name": "Ujwal Kumar",
+      "username": "ogalkomer",
+      "email": "ogalkomer@mail.com",
+      "phone": "9538832595",
+      "id": 1
+    },
+    {
+      "name": "as",
+      "username": "asdasd",
+      "email": "asdasd",
+      "phone": "asdasdasd",
+      "id": 2
+    }
+  ]
+}
