@@ -2,16 +2,16 @@
   "users": [
     {
       "name": "Ujwal Kumar",
-      "username": "ogalkomer",
-      "email": "ogalkomer@mail.com",
+      "username": "ujwalkumar",
+      "email": "ujwal@gmail.com",
       "phone": "9538832595",
       "id": 1
     },
     {
-      "name": "as",
-      "username": "asdasd",
+      "name": "asdas",
+      "username": "asdasasd",
       "email": "asdasd",
-      "phone": "asdasdasd",
+      "phone": "asdasdas",
       "id": 2
     }
   ]

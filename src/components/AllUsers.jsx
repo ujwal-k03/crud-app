@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
-import { Table, TableHead, TableBody, TableRow, TableCell, styled} from '@mui/material'
-import { getUsers } from '../service/api';
+import { Table, TableHead, TableBody, TableRow, TableCell, styled, Button} from '@mui/material'
+import { getUsers, deleteUser } from '../service/api';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const StyledTable = styled(Table)`
     width: 70%;
@@ -10,7 +11,16 @@ const StyledTable = styled(Table)`
 
 const TRow = styled(TableRow)`
     background: #000;
-    & > th
+    & > th {
+        color: #fff;
+        font-size: 20px;
+    }
+`
+
+const TBody = styled(TableRow)`
+    & > td {
+        font-size: 20px;
+    }
 `
 
 const AllUser = () => {
@@ -26,6 +36,11 @@ const AllUser = () => {
         // console.log(response);
         setUsers(response.data);
     }
+
+    const deleteUserData = async(id) => {
+        await deleteUser(id);
+        getUsersDetails();
+    }
     return (
         <StyledTable>
             <TableHead>
@@ -35,18 +50,23 @@ const AllUser = () => {
                     <TableCell>Username</TableCell>
                     <TableCell>Email</TableCell>
                     <TableCell>Phone</TableCell>
+                    <TableCell></TableCell>
                 </TRow>
             </TableHead>
             <TableBody>
                 {
                     user.map(user => (
-                        <TableRow>
+                        <TBody>
                             <TableCell>{user.id}</TableCell>
                             <TableCell>{user.name}</TableCell>
                             <TableCell>{user.username}</TableCell>
                             <TableCell>{user.email}</TableCell>
                             <TableCell>{user.phone}</TableCell>
-                        </TableRow>
+                            <TableCell>
+                                <Button variant='contained' style={{marginRight : 10}} color='secondary' component={Link} to={`/edit/${user.id}`}>Edit</Button>
+                                <Button variant='contained' onClick={() => {deleteUserData(user.id)}}>Delete</Button>
+                            </TableCell>
+                        </TBody>
                     ))
                 }
             </TableBody>
